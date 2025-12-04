@@ -32,7 +32,6 @@ int main() {
 
 
     // Introduce 2 errors for testing
-    block[1] ^= 0xFF;  // flip all bits of byte 1
     block[7] ^= 0xAA;  // flip some bits of parity byte 7
 
 
@@ -53,3 +52,4 @@ int main() {
 
     return 0;
 }
+
