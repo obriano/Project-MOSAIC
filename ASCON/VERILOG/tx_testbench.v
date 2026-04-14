@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
-module testbench();
+module tx_testbench();
 reg [63:0] iv, k0, k1, n0, n1, pln0, pln1, d0, d1, d2;
 wire [63:0] y0, y1, y2, y3, y4, out0, out1;
 transmitter LL1(iv, k0, k1, n0, n1, y0, y1, y2, y3, y4, d0, d1, d2, pln0, pln1, out0, out1);
