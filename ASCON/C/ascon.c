@@ -120,3 +120,16 @@ void decryption(bit64 state[5], bit64 key[2], bit64 associated_data_text[3], bit
    printf("tag: %llx %llx\n", state[3], state[4]);
 }
 
+void key_gen(bit64 uptime, bit64 state[5], bit64 K_MASTER1, bit64 K_MASTER2) {
+   // initialize nonce, key and IV
+    //bit64 HASH_IV = 0x0000080100cc0002;
+    p(&state[0], 12);
+    state[0] ^= K_MASTER1;
+    p(&state[0], 12);
+    state[0] ^= K_MASTER2;
+    p(&state[0], 12);
+    state[0] ^= uptime;
+    p(&state[0], 12);
+     printf("%llx %llx\n", state[1], state[0]);
+}
+
