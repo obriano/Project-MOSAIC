@@ -2,14 +2,14 @@
 module testbench();
 reg [63:0] iv, k0, k1, n0, n1, pln0, pln1, d0, d1, d2;
 wire [63:0] y0, y1, y2, y3, y4, out0, out1;
-demo LL1(iv, k0, k1, n0, n1, y0, y1, y2, y3, y4, d0, d1, d2, pln0, pln1, out0, out1);
+reciever LL1(iv, k0, k1, n0, n1, y0, y1, y2, y3, y4, d0, d1, d2, pln0, pln1, out0, out1);
 initial begin
 $dumpfile("dump.vcd");
 $dumpvars(0, testbench);
 end
 initial begin
-pln0 = 64'h1234567890abcdef;
-pln1 = 64'h1234567890abcdef;
+pln0 = 64'h55C7C8E752D9390E;
+pln1 = 64'h9E54495E0A21074C;
 d0 = 64'd7895160;
 d1 = 64'd8882055;
 d2 = 64'd37008;
