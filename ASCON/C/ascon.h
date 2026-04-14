@@ -14,4 +14,5 @@ void encrypt(bit64 state[5], int length,bit64 plaintext[], bit64 ciphertext[]);
 void decrypt(bit64 state[5], int length,bit64 plaintext[], bit64 ciphertext[]);
 void encryption (bit64 state[5], bit64 key[2], bit64 associated_data_text[3], bit64 plaintext[2], bit64 ciphertext[2]);
 void decryption (bit64 state[5], bit64 key[2], bit64 associated_data_text[3], bit64 plaintextdecrypt[2], bit64 ciphertextdecrypt[2]);
+void key_gen(bit64 uptime, bit64 state[5], bit64 K_MASTER1, bit64 K_MASTER2);
 #endif
