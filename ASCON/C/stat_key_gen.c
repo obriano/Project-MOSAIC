@@ -7,14 +7,16 @@
 #include<math.h>
 typedef uint64_t bit64;
 
+#define MAX_SAMPLE_SIZE 1000
+
 int main() {
   struct timespec start, end;
   double variance, sum, avg, max, min, std;
   max = 0;
   min = 1;
   sum = 0;
-  double elapsed_time[1000];
-  for(int i = 0; i < 1000; ++i){
+  double elapsed_time[MAX_SAMPLE_SIZE];
+  for(int i = 0; i < MAX_SAMPLE_SIZE; ++i){
    // initialize nonce, key and IV
    bit64 nonce[2] = { 0x0000000000000001, 0x0000000000000002 };
    bit64 key[2] = { 0 };
@@ -43,12 +45,12 @@ int main() {
     sum += elapsed;
     elapsed_time[i] = elapsed;
   }
-  avg = sum/1000;
-  for(int i =0; i < 1000; ++i)
+  avg = sum/MAX_SAMPLE_SIZE;
+  for(int i =0; i < MAX_SAMPLE_SIZE; ++i)
     elapsed_time[i] = (elapsed_time[i]-avg)*(elapsed_time[i]-avg);
-  for(int i =0; i < 1000; ++i)
+  for(int i =0; i < MAX_SAMPLE_SIZE; ++i)
     variance += elapsed_time[i];
-  variance /= 1000;
+  variance /= MAX_SAMPLE_SIZE;
     printf("Elapsed time: %.9f seconds\n", avg);
     printf("Min Elapsed time: %.9f seconds\n", min);
     printf("Max Elapsed time: %.9f seconds\n", max);
